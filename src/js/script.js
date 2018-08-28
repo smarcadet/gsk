@@ -1,7 +1,7 @@
 /** script */
 
 // import from a lib
-var lib = require('./lib/lib');
+// var lib = require('./lib/lib');
 
 // or from another module
 // var toto2 = require('./toto2')
@@ -21,9 +21,7 @@ foo(lib.firstname);
 var $ = require('jquery');
 
 // you can add jquery plugin just by requiring them (if they are compatible with CommonJS)
-require('slick-carousel');
-// now, that should work:
-$('#carousel').slick(); // FYI no `#carousel` element on page :D
+// require('my-plugin');
 
 // Require lib that are not compatible with CommonJS (see `webpack-config.js`)
 // And https://webpack.github.io/docs/shimming-modules.html

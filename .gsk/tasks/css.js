@@ -10,6 +10,7 @@ var bs           = require('browser-sync');
 var err          = require('../tools/errcb');
 var ENV          = require('../tools/env').css;
 var _            = require('underscore');
+var mmq          = require('gulp-merge-media-queries');
 
 // On ne va compiler que les fichiers dont le nom ne commence pas par un _
 var SRC  = [
@@ -38,6 +39,7 @@ gulp.task('css', 'Compile CSS files into build folder.', ['test:css'], function 
   return gulp.src(SRC, { nodir: true })
     .pipe(plumber({ errorHandler: err }))
     .pipe(pipeline())
+    .pipe(mmq({log: true}))
     .pipe(postcss(processors))
     .pipe(gulp.dest(DEST))
     .on('end', bs.reload);
