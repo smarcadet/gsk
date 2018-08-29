@@ -1,0 +1,21 @@
+/// Alignment
+ //
+ // * .u-align--center
+ // * .u-align--right
+ // * .u-align--left
+ //
+ // Styleguide Utilities.align
+
+.u-align {
+  &--center {
+    text-align: center;
+  }
+
+  &--right {
+    text-align: right;
+  }
+
+  &--left {
+    text-align: left;
+  }
+}

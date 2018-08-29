@@ -1,0 +1,16 @@
+/// Float
+ //
+ // markup :
+ // <div class="u-float--right"> ... </div>
+ //
+ // Styleguide Utilities.float
+
+.u-float {
+  &--right {
+    float: right;
+  }
+
+  &--left {
+    float: left;
+  }
+}

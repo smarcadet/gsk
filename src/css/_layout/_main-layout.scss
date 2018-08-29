@@ -1,0 +1,24 @@
+/// Main structure
+ //
+ // Styles for global containers
+
+@at-root {
+  body {
+    color: color(fiord);
+    background-color: white;
+    font-family: $font-raleway-reg;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: rem(16px);
+    line-height: 1.3;
+  }
+}
+
+&-container {
+  position: relative;
+  overflow: hidden;
+}
+
+&-main {
+  margin: 0 auto;
+  max-width: calc(#{$vw-max}px + (#{$grid-gutter}*2)); // site expanded treshold
+}

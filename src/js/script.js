@@ -1,7 +1,7 @@
 /** script */
 
 // import from a lib
-// var lib = require('./lib/lib');
+var lib = require('./lib/lib');
 
 // or from another module
 // var toto2 = require('./toto2')
@@ -18,7 +18,7 @@ foo(lib.firstname);
 
 // Use jQuery exposed as global by webpack config
 // for console, external script on inline js if needed
-var $ = require('jquery');
+// var $ = require('jquery');
 
 // you can add jquery plugin just by requiring them (if they are compatible with CommonJS)
 // require('my-plugin');

@@ -1,0 +1,103 @@
+/// #grid
+ //
+ // Styles for helpers tools for grid
+ // _Used only on dev evironment_
+ //
+
+@import '../_config/helpers-settings';
+@import '../_config/grid-settings';
+@import '../_config/mq';
+
+$helper-grid-column-color: #221f20;
+$helper-grid-line-color: #221f20;
+$helper-grid-z-index: 190; // less than nav-panel
+
+
+$helper-grid-column-color: transparentize($helper-grid-column-color, .9);
+$helper-grid-line-color: transparentize($helper-grid-line-color, .9);
+
+
+$grid-half-gutter: $grid-gutter/2;
+
+.helper-grid {
+  max-width: 1366px;
+  margin: 0 auto;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: $grid-margin - floor($grid-half-gutter);
+  right: $grid-margin - ceil($grid-half-gutter);
+  bottom: 0;
+  z-index: $helper-grid-z-index;
+  pointer-events: none;
+
+  background-image: linear-gradient(transparent 50%, $helper-grid-line-color 50%);
+  background-position: 0 0;
+  background-size: 100px ($lh);
+  background-repeat: repeat;
+  
+  // @include mq($from: S) {
+  //   $grid-half-gutter: $grid-from-s-gutter/2;
+  //   left: $grid-from-s-margin - floor($grid-half-gutter);
+  //   right: $grid-from-s-margin - ceil($grid-half-gutter);
+  // }
+
+  // @include mq($from: M) {
+  //   $grid-half-gutter: $grid-from-m-gutter/2;
+  //   left: $grid-from-m-margin - floor($grid-half-gutter);
+  //   right: $grid-from-m-margin - ceil($grid-half-gutter);
+  // }
+
+  @include mq($from: L) {
+    $grid-half-gutter: $grid-from-l-gutter/2;
+    left: $grid-from-l-margin - floor($grid-half-gutter);
+    right: $grid-from-l-margin - ceil($grid-half-gutter);
+  }
+
+  // @include mq($from: XL) {
+  //   $grid-half-gutter: $grid-from-xl-gutter/2;
+  //   left: $grid-from-xl-margin - floor($grid-half-gutter);
+  //   right: $grid-from-xl-margin - ceil($grid-half-gutter);
+  // }
+
+  span {
+    flex: 1 1 auto;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: floor($grid-half-gutter);
+      right: ceil($grid-half-gutter);
+      background: $helper-grid-column-color;
+
+      // @include mq($until: S) {
+      //   $grid-half-gutter: $grid-from-s-gutter/2;
+      //   left: floor($grid-half-gutter);
+      //   right: ceil($grid-half-gutter);
+      // }
+
+      // @include mq($from: M) {
+      //   $grid-half-gutter: $grid-from-m-gutter/2;
+      //   left: floor($grid-half-gutter);
+      //   right: ceil($grid-half-gutter);
+      // }
+
+      @include mq($from: L) {
+        $grid-half-gutter: $grid-from-l-gutter/2;
+        left: floor($grid-half-gutter);
+        right: ceil($grid-half-gutter);
+      }
+
+      // @include mq($from: XL) {
+      //   $grid-half-gutter: $grid-from-xl-gutter/2;
+      //   left: floor($grid-half-gutter);
+      //   right: ceil($grid-half-gutter);
+      // }
+    }
+  }
+}
+
+

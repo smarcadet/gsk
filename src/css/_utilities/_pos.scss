@@ -1,0 +1,21 @@
+/// Position
+ //
+ // * .u-pos-rel: **position: relative**
+ // * .u-pos-abs: **position: absolute**
+ // * .u-pos-stat: **position: static**
+ //
+ // Styleguide Utilities.position
+
+.u-pos {
+  &--rel {
+    position: relative;
+  }
+
+  &--abs {
+    position: absolute;
+  }
+
+  &--stat {
+    position: static;
+  }
+}

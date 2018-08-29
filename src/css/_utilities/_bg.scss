@@ -1,0 +1,16 @@
+/// Background-colors classes
+ //
+ // * .u-bg--colorExemple     : **#f4ae5e**
+ //  
+ // Styleguide Utilities.bgColors
+
+$bgcolors: (
+  colorExemple          : #f4ae5e
+);
+
+// dynamic class generation from $colors. this pattern : .{#}-color_{name} : {value};
+@each $i in $bgcolors {
+  .u-bg--#{nth($i, 1)} {
+    background-color: nth($i, 2);
+  }
+}

@@ -1,0 +1,51 @@
+/// Fonts
+ //
+ // * `$font-raleway-reg: 'ralewayReg', Arial, sans-serif;`
+ // * `$font-raleway-bold: 'ralewayBold', Arial, sans-serif;`
+ // * `$font-raleway-medium: 'ralewayMedium', Arial, sans-serif;`
+ // * `$font-raleway-semiBold: ralewaySemibold, Arial, sans-serif;`
+ //
+ // Styleguide Config.fonts
+
+// raleway regular
+@font-face {
+  font-family: ralewayReg;
+  src: url('../fonts/raleway-regular.woff2') format('woff2'),
+      url('../fonts/raleway-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// raleway bold
+@font-face {
+  font-family: ralewayBold;
+  src: url('../fonts/raleway-bold.woff2') format('woff2'),
+      url('../fonts/raleway-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// raleway medium
+@font-face {
+  font-family: ralewayMedium;
+  src: url('../fonts/raleway-medium.woff2') format('woff2'),
+      url('../fonts/raleway-medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// raleway semibold
+@font-face {
+  font-family: ralewaySemibold;
+  src: url('../fonts/raleway-semibold.woff2') format('woff2'),
+      url('../fonts/raleway-semibold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$font-default: Arial, sans-serif;
+
+$font-raleway-reg: ralewayReg, $font-default;
+$font-raleway-bold: ralewayBold, $font-default;
+$font-raleway-medium: ralewayMedium, $font-default;
+$font-raleway-semiBold: ralewaySemibold, $font-default;

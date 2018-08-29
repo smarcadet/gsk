@@ -1,4 +1,4 @@
-Gîte de France
+Garden Starter Kit
 ===============================================================================
 
 Ce dépôt contient les maquettes sous forme d’intégration statique ainsi que la documentation et les outils nécessaires à la conception frontend du projet.

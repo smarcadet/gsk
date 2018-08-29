@@ -11,6 +11,7 @@ var data     = require('gulp-data');
 var newer    = require('gulp-newer');
 var markdown = require('gulp-markdown');
 var dox      = require('gulp-dox');
+var hbs      = require('gulp-hbs');
 var dir      = require('require-dir');
 var del      = require('del');
 var ENV      = require('../tools/env');
@@ -117,6 +118,16 @@ function extractData(file) {
 }
 
 
+// HBS HELPERS
+// ----------------------------------------------------------------------------
+var helpers = dir('../tools/handlebars/helpers');
+Object.keys(helpers).forEach(function (key) {
+  var helper = helpers[key];
+  if (helper.register !== undefined){
+    helper.register(hbs);
+  }
+});
+
 // MARKED CUSTOM RENDERER
 // ----------------------------------------------------------------------------
 var renderer = new markdown.marked.Renderer();
@@ -155,6 +166,7 @@ gulp.task('doc:js', 'Compile Javascript documentation.', function () {
     .pipe(newer(path.join(DEST, 'js')))
     .pipe(dox())
     .pipe(data(extractData))
+    .pipe(hbs('./.gsk/tools/doc/jsdoc.hbs', { dataSource: 'data' }))
     .pipe(gulp.dest(path.join(DEST, 'js')));
 });
 
@@ -168,6 +180,7 @@ gulp.task('doc:static', 'Compile the static documentation.', function () {
       renderer: renderer
     }))
     .pipe(data(extractData))
+    .pipe(hbs('./.gsk/tools/doc/staticdoc.hbs', { dataSource: 'data' }))
     .pipe(gulp.dest(DEST));
 });
 

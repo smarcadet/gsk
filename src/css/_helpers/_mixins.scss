@@ -1,0 +1,157 @@
+// # Rétablissement du flux
+
+// http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix {
+  zoom: 1;
+
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+
+// # _Reset_ (et sa version surchargée)
+@mixin reset {
+  margin:  0;
+  padding: 0;
+  border:  0;
+  background-color: transparent; // pour les boutons
+  list-style-type: none; // pour les listes
+}
+
+@mixin reset-i {
+  margin:  0 !important;
+  padding: 0 !important;
+  border:  0 !important;
+  background-color: transparent !important; // pour les boutons
+  list-style-type: none !important; // pour les listes
+}
+
+
+// # Contenu masqué visuellement (et sa version surchargée)
+
+// https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html
+@mixin visually-hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  border:  0;
+  height:  1px;
+  width:   1px;
+  overflow: hidden;
+  clip: rect(1px  1px  1px  1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  opacity: .001;
+}
+
+@mixin visually-hidden-i {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  padding: 0 !important;
+  border:  0 !important;
+  height:  1px !important;
+  width:   1px !important;
+  overflow: hidden !important;
+  clip: rect(1px  1px  1px  1px) !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  opacity: 0.001 !important;
+}
+
+
+// Et la possibilité de le ré-afficher (et sa version surchargée)
+@mixin visually-visible {
+  position:  static;
+  height:      auto;
+  width:       auto;
+  clip:        auto;
+  overflow: visible;
+  opacity:        1;
+}
+
+@mixin visually-visible-i {
+  position:  static !important;
+  height:      auto !important;
+  width:       auto !important;
+  clip:        auto !important;
+  overflow: visible !important;
+  opacity:        1 !important;
+}
+
+
+// # Survol des liens
+
+// Pas de soulignement par défaut, puis soulignement au survol ou au focus.
+@mixin deco-roll {
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+
+// Ou soulignement par défaut, puis pas de soulignement au survol ou au focus.
+@mixin deco-unroll {
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+
+// # Étirement des blocs
+@mixin stretch($length: 0) {
+  position: absolute;
+
+  left:   $length;
+  top:    $length;
+  bottom: $length;
+  right:  $length;
+
+  // Avec une option pour positionner une image centrée quelque soit ça taille.
+  @if strip-unit($length) <= -999
+  {
+    margin: auto;
+  }
+}
+
+
+// # Calculs typographiques cumulés sur un bloc
+
+// Joue sur la taille de texte, la marge basse et la hauteur de ligne.
+@mixin typo($fs, $context: $fs0, $unit: $prefered-unit) {
+  font-size: size($fs, $unit, $context);
+  line-height: typo-line-height($fs, $unit);
+}
+
+
+// # Répétition d’un selecteur
+
+// Pour surcharger sans pour autant passer par `!important`. (À éviter néanmoins.)
+
+// http://sassmeister.com/gist/8d422c717c874a3daf43
+@mixin repeat($select: '', $i: 2) {
+  @if $i > 1
+  {
+    @include repeat($select, $i - 1) {
+      &.#{$prefix-project}#{$select} {
+        @content;
+      }
+    }
+  } @else {
+    &#{$select} {
+      @content;
+    }
+  }
+}

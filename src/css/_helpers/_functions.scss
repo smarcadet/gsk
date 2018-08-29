@@ -1,0 +1,111 @@
+//  # Suppresion de l’unité
+
+// - `$number` : variable (avec ou sans unité) passée en paramètre ;
+// - `@return` : variable sans unité retournée.
+@function strip-unit($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+
+//  # Conversion de pixels en ems
+
+// - `$px` : variable en pixels passée en paramètre ;
+// - `$contexte` : contexte de travail en pixels (par défaut égal à la taille de texte du projet) ;
+// - `@return` : équivalence en `ems` retournée.
+@function em($px, $contexte: $fs0) {
+  @return(strip-unit($px) / strip-unit($contexte) * 1em);
+}
+
+
+ // # Conversion de pixels en rems
+
+ // - `$px` : variable en pixels passée en paramètre ;
+ // - `$bfs` : contexte de travail égal à la taille de texte du navigateur par défaut ;
+ // - Pour les navigateurs modernes. `@return` : équivalence en `rems` retournée.
+ // - Pour IE 8 et inférieurs. `@return` : équivalence en pixels retournée.
+ @function rem($px) {
+  @if $rem {
+    @return(strip-unit($px) / strip-unit($bfs) * 1rem);
+  } @else {
+    @return(strip-unit($px) * 1px);
+  }
+}
+
+
+ // # Conversion de pixels en points
+
+ // - `$px` : variable en pixels passée en paramètre ;
+ // - `@return` : équivalence en points retournée.
+@function pt($px) {
+  @return(strip-unit($px) * map-get($ratios, fourth)  * 1pt);
+}
+
+
+// # Calculs typographiques cumulés sur un bloc
+
+// Joue sur la taille de texte et la hauteur de ligne
+@function typo-line-height($fs, $unit: $prefered-unit) {
+  @if $fs <= 14px {
+    @return size(18px, $unit, $fs);
+  } @else {
+    @return size(lines($fs) * $lh, $unit, $fs);
+  }
+}
+
+
+//  # Calculer la largeur en pourcentage d’une colonne
+
+// Avec pour objectif de pour pouvoir en afficher un nombre donné.
+
+//  - `$col-nb` : nombre de colonnes à afficher passé en paramètre (par défaut égal à 1) ;
+//  - `$context` : dans le cadre d’imbrication de colonnes, on peut préciser le nombre de colonnes de l’imbrication supérieure (par défaut à 1) ;
+//  - `$gutter` : largeur en pixels d’une gouttière ;
+//  - `$gutter-pourcent` : largeur en pourcentage d’une gouttière ;
+//  - `$gutter-nb` : nombre de gouttières ;
+//  - `@return` : taille en pourcentage retournée.
+@function grid-col-width($col-nb: 1, $context: 1, $gutter-pourcent: pourcent($gutter)) {
+  $gutter-nb: $col-nb - 1;
+
+  @return (100% - (strip-unit($gutter-pourcent) * $gutter-nb * $context)) / $col-nb;
+}
+
+
+ // # Calculer le nombre de lignes nécessaires
+
+ // - `$font-size` : taille du texte en pixels passée en paramètre ;
+ // - `$line-height` : hauteur de ligne ;
+ // - `$gap` : gap minimum entre la hauteur de ligne et la taille de texte : s’il n’est pas respecté, le nombre de ligne se voit augmenté de 0.5 ;
+ // - `@return` : nombre de lignes nécessaires pour afficher.
+@function lines($font-size, $line-height: $lh) {
+  $lines: ceil(2 * $font-size / $line-height) / 2;
+  $gap: 2px;
+
+  @if ($lines * $line-height - $font-size) < $gap {
+    $lines: $lines + .5;
+  }
+
+  @return $lines;
+}
+
+
+// # Calcul de taille dans l’unité de son choix */
+
+// - `px` : variable en pixels passée en paramètre ;
+// - `contexte` : contexte de travail en pixels (par défaut égal à la taille de texte du projet) ;
+// - `unit` : unité choisie (par défaut égale à l’unité préférée du projet) ;
+// - Retourne une taille en `em`, en `rem` ou en `px` en fonction de `unit`.
+@function size($px, $unit: prefered-unit, $contexte: fs0)
+{
+  @if unit == 'em'
+  {
+    @return em($px, contexte);
+  }
+  @elseif unit == 'rem'
+  {
+    @return rem($px);
+  }
+  @else
+  {
+    @return $px;
+  }
+}

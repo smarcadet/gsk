@@ -1,0 +1,9 @@
+/// Clearfix
+ //
+ // * .u-clearfix: **@include clearfix;**
+ //
+ // Styleguide Utilities.clearfix
+
+.u-clearfix {
+  @include clearfix;
+}

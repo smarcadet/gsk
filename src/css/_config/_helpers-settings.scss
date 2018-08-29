@@ -1,0 +1,32 @@
+/// Prefered unit
+ //
+ // $prefered-unit
+ //
+ // `em`, `rem`, `pt` ou `px`.
+ // (`pt` and `px` are not very interesting here)
+
+$prefered-unit: 'rem' !default;
+
+/// This project support rem
+$rem: true !default;
+
+
+/// Base Font Size
+ //
+ // | Variables   | Values                     |
+ // |:------------|---------------------------:|
+ // | $bfs  | _font-size_ -> **browser** |
+ // | $fs0  | _font-size_ -> **project** |
+ //
+ // Styleguide Config.baseFontSize
+
+$bfs: 16px !default;
+$fs0: $bfs !default;
+
+/// Line height
+ //
+ // - `$lh`: line height.
+ //
+$lh: round($fs0 / (2/3)) !default;
+
+

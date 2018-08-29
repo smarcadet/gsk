@@ -1,0 +1,29 @@
+/// Config
+ //
+ // Configuration styleguide section.
+ //
+ // Find here : Colors, font-face, classes namming convention, etc…
+ //
+ // Styleguide Config
+
+/// Prefix project
+ //
+ // Config projet
+ //
+ // $project-prefix - `g2f` is prefix of classe names of this project.
+ //
+ // (You can work out this context whith the `@at-root{}` block.)
+ //
+ // Styleguide Config.Project
+
+$prefix: 'domainName';
+
+/// Min & max viewport limits width
+ //
+ // $vw-min : **320px**
+ // $vw-max : **1280px**
+ //
+ // Styleguide Config.Project.limits
+
+$vw-min: "320" !default;
+$vw-max: "1280" !default;

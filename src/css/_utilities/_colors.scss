@@ -1,0 +1,59 @@
+/// Colors
+ //
+ // Instead, pick the color name and call it with the function color(). e.g. `background-color: color(fiord);`
+ //
+ // If you need inspiration, use http://chir.ag/projects/name-that-color/ to name your colors.
+ //
+ // Styleguide Config.Colors
+
+/// Colors of theme
+ //
+ // Those colors are from styleguide given by Publicis.
+ //
+ // Colors:
+ // colorExemple          : #f4ae5e
+ //
+ // Weight: -10
+ //
+ // Styleguide Config.Colors.wheel
+
+/// Grey colors
+ //
+ // Colors:
+ // colorGreyExemple           : #d8d8d8
+ //
+ // Weight: 10
+ //
+ // Styleguide Config.Colors.grey
+
+// Because Scss Linter doesn't see Sass lists as variable…
+// scss-lint:disable ColorVariable
+$colors: (
+  colorExemple          : #f4ae5e,
+
+  // Grey colors
+  colorGreyExemple           : #d8d8d8
+);
+
+// Function to easily get color names
+@function color($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $colors.";
+  @return null;
+}
+
+/// Colors classes
+ //
+ // * .u-color--colorExemple     : **#f4ae5e**
+ //  
+ // Styleguide Utilities.colors
+
+// dynamic class generation from $colors. this pattern : .{#}-color_{name} : {value};
+@each $i in $colors {
+  .u-color--#{nth($i, 1)} {
+    color: nth($i, 2);
+  }
+}

@@ -1,4 +1,4 @@
 /** lib */
 module.exports = {
-	firstname : 'John'
+  firstname : 'John'
 };

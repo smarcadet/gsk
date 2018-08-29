@@ -1,0 +1,21 @@
+/// Overflow
+ //
+ // * .u-overflow--hidden
+ // * .u-overflow--visible
+ // * .u-overflow--scroll
+ //
+ // Styleguide Utilities.overflow
+
+.u-overflow {
+  &--hidden {
+    overflow: hidden;
+  }
+
+  &--visible {
+    overflow: visible;
+  }
+
+  &--scroll {
+    overflow: scroll;
+  }
+}

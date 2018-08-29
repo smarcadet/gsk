@@ -60,7 +60,7 @@ class KssBuilder extends KssBuilderBase {
         string: true,
         multiple: false,
         describe: 'Title of the style guide',
-        default: 'KSS Style Guide'
+        default: 'Style Guide'
       }
     });
 

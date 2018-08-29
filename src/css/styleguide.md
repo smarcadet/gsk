@@ -18,8 +18,8 @@ Naming convention is based on [SuitCSS naming conventions](https://github.com/su
 Basically, class names must follow this conventions :
 
 *   [componentName](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#ComponentName)
-*   [componentName--modifierName](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#ComponentName--modifierName)
 *   [componentName-descendantName](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#ComponentName-descendentName)
+*   [componentName--modifierName](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#ComponentName--modifierName)
 *   [componentName.is-stateOfComponent](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#is-stateOfComponent)
 
 Just a small difference between original suitCSS convention :
@@ -64,35 +64,6 @@ Like this :
     }
 
 Check the _.scss-lint.yml_ file at the root of the project for more details.
-
-### Declaration order
-
-Declarations must be consistently ordered, with cluster related properties (e.g. positioning and box-model) together.
-
-    .selector {
-        /* Positioning, Display & Box Model */
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: inline-block;
-        overflow: hidden;
-        box-sizing: border-box;
-        width: 100px;
-        height: 100px;
-        padding: 10px;
-        border: 10px solid #333;
-        margin: 10px;
-
-        /* Other */
-        background: #000;
-        color: #FFF;
-        font-family: sans-serif;
-        font-size: 16px;
-        text-align: right;
-    }
 
 ### Exceptions and slight deviations
 

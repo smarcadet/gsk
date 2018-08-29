@@ -1,0 +1,79 @@
+/// Margin
+//
+// reinit:
+// * .u-mg--0: **0**
+// * .u-mg-t--0: **top 0**
+// * .u-mg-b--0: **bottom 0**
+//
+// mg-top:
+// * .u-mg-t--xs: **6px**
+// * .u-mg-t--s: **12px**
+// * .u-mg-t--m: **24px**
+// * .u-mg-t--l: **48px**
+// * .u-mg-t--xl: **96px**
+// * .u-mg-t--xxl: **144px**
+//
+// mg-bottom:
+// * .u-mg-b--xs: **6px**
+// * .u-mg-b--s: **12px**
+// * .u-mg-b--m: **24px**
+// * .u-mg-b--l: **48px**
+// * .u-mg-b--xl: **96px**
+// * .u-mg-b--xxl: **144px**
+//
+// Styleguide Utilities.margin
+$margin: ( xs: $lh / 4,
+s: $lh / 2,
+m: $lh,
+l: $lh * 2,
+xl: $lh * 4,
+xxl: $lh * 6);
+
+.u-mg {
+
+  &--auto {
+    margin: auto;
+  }
+
+  &--0 {
+    margin: 0;
+  }
+
+  &-t--0 {
+    margin-top: 0;
+  }
+
+  &-b--0 {
+    margin-bottom: 0;
+  }
+
+  &-r--0 {
+    margin-bottom: 0;
+  }
+
+  &-l--0 {
+    margin-bottom: 0;
+  }
+
+  // u-mg-l--{x}
+  @each $i in $margin {
+    &-l--#{nth($i, 1)} {
+      margin-left: nth($i, 2);
+    }
+  } // u-mg-r--{x}
+  @each $i in $margin {
+    &-r--#{nth($i, 1)} {
+      margin-right: nth($i, 2);
+    }
+  } // u-mg-t--{x}
+  @each $i in $margin {
+    &-t--#{nth($i, 1)} {
+      margin-top: nth($i, 2);
+    }
+  } // u-mg-b--{x}
+  @each $i in $margin {
+    &-b--#{nth($i, 1)} {
+      margin-bottom: nth($i, 2);
+    }
+  }
+}

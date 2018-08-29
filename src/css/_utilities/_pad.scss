@@ -1,0 +1,62 @@
+/// Padding
+ //
+ // reinit:
+ // * .u-pad--0: **0**
+ // * .u-pad-t--0: **top 0**
+ // * .u-pad-b--0: **bottom 0**
+ //
+ // pad-top:
+ // * .u-pad-t--xs: **6px;**
+ // * .u-pad-t--s: **12px;**
+ // * .u-pad-t--m: **24px;**
+ // * .u-pad-t--l: **48px;**
+ // * .u-pad-t--xl: **96px**
+ // * .u-pad-t--xxl: **144px;**
+ //
+ // pad-bottom:
+ // * .u-pad-b--xs: **6px**
+ // * .u-pad-b--s: **12px**
+ // * .u-pad-b--m: **24px**
+ // * .u-pad-b--l: **48px**
+ // * .u-pad-b--xl: **96px**
+ // * .u-pad-b--xxl: **144px**
+ //
+ // Styleguide Utilities.padding
+
+$padding: (
+  xs  : $lh / 4,
+  s   : $lh / 2,
+  m   : $lh,
+  l   : $lh * 2,
+  xl  : $lh * 4,
+  xxl : $lh * 6
+);
+
+.u-pad {
+
+  &--0 {
+    padding: 0;
+  }
+
+  &-t--0 {
+    padding-top: 0;
+  }
+
+  &-b--0 {
+    padding-bottom: 0;
+  }
+
+  // u-pad-t--{x}
+  @each $i in $padding {
+    &-t--#{nth($i, 1)} {
+      padding-top: nth($i, 2);
+    }
+  }
+
+  // u-pad-b--{x}
+  @each $i in $padding {
+    &-b--#{nth($i, 1)} {
+      padding-bottom: nth($i, 2);
+    }
+  }
+}

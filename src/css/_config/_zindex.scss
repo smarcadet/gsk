@@ -1,0 +1,19 @@
+/// Z index
+ //
+ // Use zindex variable as reference for component z-index
+ //
+ // In zindex variable must stay multiple on 100 and used with adition in each component
+ //
+ // | Variables            | value |
+ // |:---------------------|------:|
+ // | $zindex-popin        |  400  |
+ // | $zindex-sticky       |  300  |
+ // | $zindex-header       |  200  |
+ // | $zindex-nav          |  100  |
+ //
+ // Styleguide Config.zindex
+
+$zindex-popin   : 400;
+$zindex-sticky  : 300;
+$zindex-header  : 200;
+$zindex-nav     : 100;

@@ -33,55 +33,57 @@
 
   <div class="ca__pageWrapper">
     <nav class="ca__sidebar">
-      <ul class="ca__sidebarMenu">
-        <li class="ca__sidebarMenuItem">
-          <a class="ca__sidebarLink" href="..">
-            <span class="ca__sidebarRef">::</span>
-            Documentation
-          </a>
-        </li>
-      </ul>
+      <div class="ca__sidebarScroll">
+        <ul class="ca__sidebarMenu">
+          <li class="ca__sidebarMenuItem">
+            <a class="ca__sidebarLink" href="..">
+              <span class="ca__sidebarRef">::</span>
+              Documentation
+            </a>
+          </li>
+        </ul>
 
-      <ul class="ca__sidebarMenu">
-      {% for menu_item in menu %}
-        <li class="ca__sidebarMenuItem">
-          <a class="ca__sidebarLink{% if menu_item.isActive %} ca__sidebarLink-highlight{%endif%}" href="section-{{ menu_item.referenceURI }}.html">
-            <span class="ca__sidebarRef">
-              {{ menu_item.referenceNumber }}
-            </span>
-            {{ menu_item.header }}
-          </a>
+        <ul class="ca__sidebarMenu">
+        {% for menu_item in menu %}
+          <li class="ca__sidebarMenuItem">
+            <a class="ca__sidebarLink{% if menu_item.isActive %} ca__sidebarLink-highlight{%endif%}" href="section-{{ menu_item.referenceURI }}.html">
+              <span class="ca__sidebarRef">
+                {{ menu_item.referenceNumber }}
+              </span>
+              {{ menu_item.header }}
+            </a>
 
-          {% if menu_item.isActive and menu_item.children is not empty %}
-            <ul class="ca__sidebarMenu">
-            {% for menu_child in menu_item.children %}
-              <li class="ca__sidebarMenuItem">
-                  <a class="ca__sidebarLink" href="section-{{ menu_item.referenceURI }}.html#kssref-{{ menu_child.referenceURI }}">
-                  <span class="ca__sidebarRef">{{ menu_child.referenceNumber }}</span>
-                  {{ menu_child.header }}
-                </a>
-              </li>
-            {% endfor %}
-            </ul>
-          {% endif %}
-        </li>
-      {% endfor %}
-      </ul>
+            {% if menu_item.isActive and menu_item.children is not empty %}
+              <ul class="ca__sidebarMenu">
+              {% for menu_child in menu_item.children %}
+                <li class="ca__sidebarMenuItem">
+                    <a class="ca__sidebarLink" href="section-{{ menu_item.referenceURI }}.html#kssref-{{ menu_child.referenceURI }}">
+                    <span class="ca__sidebarRef">{{ menu_child.referenceNumber }}</span>
+                    {{ menu_child.header }}
+                  </a>
+                </li>
+              {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+        </ul>
 
-      <ul class="ca__sidebarMenu">
-        <li class="ca__sidebarMenuItem">
-          <a class="ca__sidebarLink" href="../js">
-            <span class="ca__sidebarRef">::</span>
-            API JavaScripts
-          </a>
-        </li>
-        <li class="ca__sidebarMenuItem">
-          <a class="ca__sidebarLink" href=".">
-            <span class="ca__sidebarRef">::</span>
-            Guide des styles
-          </a>
-        </li>
-      </ul>
+        <ul class="ca__sidebarMenu">
+          <li class="ca__sidebarMenuItem">
+            <a class="ca__sidebarLink" href="../js">
+              <span class="ca__sidebarRef">::</span>
+              API JavaScripts
+            </a>
+          </li>
+          <li class="ca__sidebarMenuItem">
+            <a class="ca__sidebarLink" href=".">
+              <span class="ca__sidebarRef">::</span>
+              Guide des styles
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
     <main role="main" class="ca__content">
       {% if homepage %}
