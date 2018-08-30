@@ -115,12 +115,18 @@ Tâches
 
 Le projet hérite des tâches Gulp normalisées du _Garder Starter Kit_ dispose d'un certain nombre de tâches.
 
-**live** : Permet de démarrer un serveur statique pour les pages HTML et d’avoir un _watch_ sur les fichiers du projet en même temps.
+**connect** : Demarre le serveur intégré
+
+```bash
+$ gulp connect
+```
 
 > **ATTENTION :** _Même si tous les chemins sont résolus de manière relative, il
   est vivement conseillé de préférer cette méthode à tout autre serveur local
   que vous pourriez utiliser. De cette manière, vous verrez toujours votre site
-  « à la racine ». Votre site répondra sur l’URL : [http://localhost:8000](http://localhost:8000)_
+  « à la racine ». Sauf si le port est déjà occupé, votre site répondra sur l’URL : [http://localhost:8000](http://localhost:8000)_
+
+**live** : Permet de démarrer un serveur statique pour les pages HTML et d’avoir un _watch_ sur les fichiers du projet en même temps.
 
 ```bash
 $ gulp live
