@@ -1,6 +1,9 @@
-/// Main structure
- //
- // Styles for global containers
+// | Layout
+//
+// Grid system and global styles for site structure:
+// --> body, header, footer, globalWrapper, mainContainer
+//
+// Styleguide Layout
 
 @at-root {
   body {
@@ -13,12 +16,12 @@
   }
 }
 
-&-container {
+&-globalWrapper {
   position: relative;
   overflow: hidden;
 }
 
-&-main {
+&-mainContainer {
   margin: 0 auto;
   max-width: calc(#{$vw-max}px + (#{$grid-gutter}*2)); // site expanded treshold
 }

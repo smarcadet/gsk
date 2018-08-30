@@ -87,7 +87,7 @@ $font-icon: 'fontello';
 // MAIN STYLES
 // ----------------------------------------------------------------------------
 .ca {
-  font: 1em/140% Georgia, serif;
+  font: 1.05em/1.4 Georgia, serif;
   padding: 0;
   margin: 0;
   background: $color-bg-page;
@@ -121,6 +121,7 @@ $font-icon: 'fontello';
 
     &Menu {
       @include reset-list;
+      margin-bottom: 15px;
 
       & & {
         margin-left: 1rem;
@@ -136,6 +137,10 @@ $font-icon: 'fontello';
     &Link {
       color: inherit;
       text-decoration: none;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: block;
 
       &:hover,
       &:active,
@@ -146,7 +151,7 @@ $font-icon: 'fontello';
     }
 
     &Ref {
-      color: $grey;
+      color: $dark-gold;
     }
   }
 
@@ -229,6 +234,10 @@ $font-icon: 'fontello';
       padding: .5em;
     }
 
+    p {
+      margin-bottom: 5px;
+    }
+
     blockquote {
       margin: 1em 0;
       color: $dark-grey;
@@ -263,6 +272,12 @@ $font-icon: 'fontello';
     h6 {
       @extend %title;
       @extend %title4;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-bottom: 25px;
     }
   }
 

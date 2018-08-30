@@ -13,17 +13,16 @@ Tip: use an [EditorConfig](http://editorconfig.org/) file (or equivalent) to hel
 
 ## 2\. Naming conventions
 
-Naming convention is based on [SuitCSS naming conventions](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md).
+Naming convention is inspired by this article (fr) [Bonnes pratiques en css bem et oocss](https://www.alsacreations.com/article/lire/1641-bonnes-pratiques-en-css-bem-et-oocss.html) and by [SuitCSS naming conventions](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md).
 
 Basically, class names must follow this conventions :
 
-*   [componentName](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#ComponentName)
-*   [componentName-descendantName](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#ComponentName-descendentName)
-*   [componentName--modifierName](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#ComponentName--modifierName)
-*   [componentName.is-stateOfComponent](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#is-stateOfComponent)
+*   [moduleName](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#moduleName)
+*   [moduleName-descendantName](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#moduleName-descendentName) --> dash concatenation, nesting restrict to 2 levels
+*   [moduleName._variantName](https://www.alsacreations.com/article/lire/1641-bonnes-pratiques-en-css-bem-et-oocss.html) --> class concatenation with '_' to start
+*   [moduleName.is-stateOfModule](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#is-stateOfComponent) --> class concatenation with 'is-' keyword to start
 
-Just a small difference between original suitCSS convention :
-* The componentName must start with lowercase character.
+TO NOTE : The **moduleName**, **descendantName**, **modifierName** and **stateOfModule** must start with **lowercase** character !
 
 
 ## 3\. Format

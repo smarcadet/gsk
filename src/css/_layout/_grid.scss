@@ -1,30 +1,30 @@
 /// Vertical grid
- //
- // Flexbox grid for sass is use for this project : http://hugeinc.github.io/flexboxgrid-sass/
- //
- // * `.row`: row
- // * `.col-X`: col (1 <= X <= 12)
- //
- // Markup:
- // <div class="wrapper container-fluid">
- // <h3>responsive</h3>
- // <div class="row">
- // <div class="col-xs-12 col-sm-3 col-md-2 col-lg-1">
- //  <div class="box-row" style="background:#eee">1</div>
- // </div>
- // <div class="col-xs-6 col-sm-6 col-md-8 col-lg-10">
- //  <div class="box-row" style="background:#eee">2</div>
- // </div>
- // <div class="col-xs-6 col-sm-3 col-md-2 col-lg-1">
- //  <div class="box-row" style="background:#eee">3</div>
- // </div>
- // </div>
- // </div>
- //
- // Dissable lint rules for block order for overide col rules by media-queries
- // scss-lint:disable DeclarationOrder
- //
- // Styleguide Layout.Grid
+//
+// Flexbox grid for sass is use for this project : http://hugeinc.github.io/flexboxgrid-sass/
+//
+// * `.row`: row
+// * `.col-X`: col (1 <= X <= 12)
+//
+// Markup:
+// <div class="wrapper container-fluid">
+// <h3>responsive</h3>
+// <div class="row">
+// <div class="col-xs-12 col-sm-3 col-md-2 col-lg-1">
+//  <div class="box-row" style="background:#eee">1</div>
+// </div>
+// <div class="col-xs-6 col-sm-6 col-md-8 col-lg-10">
+//  <div class="box-row" style="background:#eee">2</div>
+// </div>
+// <div class="col-xs-6 col-sm-3 col-md-2 col-lg-1">
+//  <div class="box-row" style="background:#eee">3</div>
+// </div>
+// </div>
+// </div>
+//
+// Dissable lint rules for block order for overide col rules by media-queries
+// scss-lint:disable DeclarationOrder
+//
+// Styleguide Layout.Grid
 
 @import "sass-flex-mixin/_flex";
 

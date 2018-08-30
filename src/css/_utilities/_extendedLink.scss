@@ -1,26 +1,30 @@
-/// Extended link to full area
+/// Extended link
  //
- // markup :
- // <div class="u-extendedLink" style="height:50px;width:100%;background:silver;">
- // <a href="#" class="u-extendedLink-target">Link</a>
+ // Extend : link / button / submit to target parent area.
+ // * u-extendedLink-target : target the parent for extend link area
+ // * u-extendedLink : target the link to extend
+ //
+ // markup:
+ // <div class="u-extendedLink-target" style="height:200px;width:150px;border:1px solid silver;text-align:center;">
+ //   <a href="#" class="u-extendedLink">Link</a>
  // </div>
  //
  // Styleguide Utilities.extendedLink
 
 .u-extendedLink {
-  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: block;
+    cursor: pointer;
+    z-index: 1;
+  }
 
   &-target {
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      display: block;
-      cursor: pointer;
-      z-index: 1;
-    }
+    position: relative; 
   }
 }
