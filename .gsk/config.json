@@ -10,10 +10,14 @@
     "engine"      : "sass",
     "postcss"     : {
       "autoprefixer": {
-        "browsers": ["> 4%", "ie >= 8"]
+        "browsers": ["> 4%", "ie >= 8"],
+        "remove": false
       },
       "cssnano": {
-        "preset": "default"
+        "preset": "default",
+        "autoprefixer": {
+          "remove": false
+        }
       }
     }
   },
